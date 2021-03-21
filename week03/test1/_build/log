@@ -1,10 +1,10 @@
-# dune build tailOpt.exe
+# dune build test2.exe
 # OCAMLPARAM: unset
-# Workspace root: /Users/macbook/3-1/pl/Ocaml/week03/hw
-$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/mz/wy8m4lj564j_lycn1_x6w1k00000gn/T/dunee110db.output 2> /dev/null
+# Workspace root: /Users/macbook/3-1/pl/Ocaml/week03/test1
+$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/mz/wy8m4lj564j_lycn1_x6w1k00000gn/T/dune5c218b.output 2> /dev/null
 # Auto-detected concurrency: 8
 # disable binary cache
-$ /Users/macbook/.opam/default/bin/ocamlc.opt -config > /var/folders/mz/wy8m4lj564j_lycn1_x6w1k00000gn/T/dune7aa18c.output
+$ /Users/macbook/.opam/default/bin/ocamlc.opt -config > /var/folders/mz/wy8m4lj564j_lycn1_x6w1k00000gn/T/dune30269e.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -24,17 +24,17 @@ $ /Users/macbook/.opam/default/bin/ocamlc.opt -config > /var/folders/mz/wy8m4lj5
 #      map
 #        { "DUNE_OCAML_HARDCODED" : "/Users/macbook/.opam/default/lib"
 #        ; "DUNE_OCAML_STDLIB" : "/Users/macbook/.opam/default/lib/ocaml"
-#        ; "DUNE_SOURCEROOT" : "/Users/macbook/3-1/pl/Ocaml/week03/hw"
+#        ; "DUNE_SOURCEROOT" : "/Users/macbook/3-1/pl/Ocaml/week03/test1"
 #        ; "INSIDE_DUNE" :
-#            "/Users/macbook/3-1/pl/Ocaml/week03/hw/_build/default"
+#            "/Users/macbook/3-1/pl/Ocaml/week03/test1/_build/default"
 #        ; "MANPATH" :
-#            "/Users/macbook/3-1/pl/Ocaml/week03/hw/_build/install/default/bin"
+#            "/Users/macbook/3-1/pl/Ocaml/week03/test1/_build/install/default/bin"
 #        ; "OCAMLFIND_IGNORE_DUPS_IN" :
-#            "/Users/macbook/3-1/pl/Ocaml/week03/hw/_build/install/default/lib"
+#            "/Users/macbook/3-1/pl/Ocaml/week03/test1/_build/install/default/lib"
 #        ; "OCAMLPATH" :
-#            "/Users/macbook/3-1/pl/Ocaml/week03/hw/_build/install/default/lib"
+#            "/Users/macbook/3-1/pl/Ocaml/week03/test1/_build/install/default/lib"
 #        ; "OCAMLTOP_INCLUDE_PATH" :
-#            "/Users/macbook/3-1/pl/Ocaml/week03/hw/_build/install/default/lib/toplevel"
+#            "/Users/macbook/3-1/pl/Ocaml/week03/test1/_build/install/default/lib/toplevel"
 #        ; "OCAML_COLOR" : "always"
 #        ; "OPAMCOLOR" : "always"
 #        }
@@ -109,15 +109,10 @@ $ /Users/macbook/.opam/default/bin/ocamlc.opt -config > /var/folders/mz/wy8m4lj5
 #      ; windows_unicode = false
 #      }
 #  }
-$ (cd _build/default && /Users/macbook/.opam/default/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I .tailOpt.eobjs/byte -no-alias-deps -opaque -o .tailOpt.eobjs/byte/dune__exe__TailOpt.cmo -c -impl tailOpt.ml)
-> File "tailOpt.ml", line 7, characters 26-43:
-> 7 | 		| (lst1 , lst2) :: t -> split_result t l1@lst1 l2@lst2
->                               ^^^^^^^^^^^^^^^^^
-> Error (warning 5 [ignored-partial-application]): this function application is partial,
-> maybe some arguments are missing.
-> File "tailOpt.ml", line 7, characters 26-43:
-> 7 | 		| (lst1 , lst2) :: t -> split_result t l1@lst1 l2@lst2
->                               ^^^^^^^^^^^^^^^^^
-> Error: This expression has type 'a -> 'b * 'a
->        but an expression was expected of type 'c list
+$ (cd _build/default && /Users/macbook/.opam/default/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I .test2.eobjs/byte -no-alias-deps -opaque -o .test2.eobjs/byte/dune__exe__Test2.cmo -c -impl test2.ml)
+> File "test2.ml", line 7, characters 14-15:
+> 7 | 		     (split x)@a,(split y)@b
+>                   ^
+> Error: This expression has type 'a list
+>        but an expression was expected of type int * 'b
 [2]

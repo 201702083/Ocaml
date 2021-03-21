@@ -1,10 +1,10 @@
-# dune build test.exe
+# dune build test1.exe
 # OCAMLPARAM: unset
-# Workspace root: /Users/macbook/3-1/pl/week03/test
-$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/mz/wy8m4lj564j_lycn1_x6w1k00000gn/T/dune3e88aa.output 2> /dev/null
+# Workspace root: /Users/macbook/3-1/pl/Ocaml/week03/test
+$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/mz/wy8m4lj564j_lycn1_x6w1k00000gn/T/dunebd12b8.output 2> /dev/null
 # Auto-detected concurrency: 8
 # disable binary cache
-$ /Users/macbook/.opam/default/bin/ocamlc.opt -config > /var/folders/mz/wy8m4lj564j_lycn1_x6w1k00000gn/T/duneba4dd3.output
+$ /Users/macbook/.opam/default/bin/ocamlc.opt -config > /var/folders/mz/wy8m4lj564j_lycn1_x6w1k00000gn/T/duneaf95b4.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -24,16 +24,17 @@ $ /Users/macbook/.opam/default/bin/ocamlc.opt -config > /var/folders/mz/wy8m4lj5
 #      map
 #        { "DUNE_OCAML_HARDCODED" : "/Users/macbook/.opam/default/lib"
 #        ; "DUNE_OCAML_STDLIB" : "/Users/macbook/.opam/default/lib/ocaml"
-#        ; "DUNE_SOURCEROOT" : "/Users/macbook/3-1/pl/week03/test"
-#        ; "INSIDE_DUNE" : "/Users/macbook/3-1/pl/week03/test/_build/default"
+#        ; "DUNE_SOURCEROOT" : "/Users/macbook/3-1/pl/Ocaml/week03/test"
+#        ; "INSIDE_DUNE" :
+#            "/Users/macbook/3-1/pl/Ocaml/week03/test/_build/default"
 #        ; "MANPATH" :
-#            "/Users/macbook/3-1/pl/week03/test/_build/install/default/bin"
+#            "/Users/macbook/3-1/pl/Ocaml/week03/test/_build/install/default/bin"
 #        ; "OCAMLFIND_IGNORE_DUPS_IN" :
-#            "/Users/macbook/3-1/pl/week03/test/_build/install/default/lib"
+#            "/Users/macbook/3-1/pl/Ocaml/week03/test/_build/install/default/lib"
 #        ; "OCAMLPATH" :
-#            "/Users/macbook/3-1/pl/week03/test/_build/install/default/lib"
+#            "/Users/macbook/3-1/pl/Ocaml/week03/test/_build/install/default/lib"
 #        ; "OCAMLTOP_INCLUDE_PATH" :
-#            "/Users/macbook/3-1/pl/week03/test/_build/install/default/lib/toplevel"
+#            "/Users/macbook/3-1/pl/Ocaml/week03/test/_build/install/default/lib/toplevel"
 #        ; "OCAML_COLOR" : "always"
 #        ; "OPAMCOLOR" : "always"
 #        }
@@ -108,11 +109,12 @@ $ /Users/macbook/.opam/default/bin/ocamlc.opt -config > /var/folders/mz/wy8m4lj5
 #      ; windows_unicode = false
 #      }
 #  }
-$ (cd _build/default && /Users/macbook/.opam/default/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I .test.eobjs/byte -no-alias-deps -opaque -o .test.eobjs/byte/dune__exe__Test.cmo -c -impl test.ml)
-> File "test.ml", line 21, characters 19-20:
-> 21 | 	let _ = print_tup b in
->                         ^
-> Error: This expression has type (int * int) list
->        but an expression was expected of type int list
->        Type int * int is not compatible with type int 
+$ (cd _build/default && /Users/macbook/.opam/default/bin/ocamldep.opt -modules -impl test1.ml) > _build/default/.test1.eobjs/test1.ml.d
+$ (cd _build/default && /Users/macbook/.opam/default/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I .test1.eobjs/byte -no-alias-deps -opaque -open Dune__exe -o .test1.eobjs/byte/dune__exe__Test1.cmo -c -impl test1.ml)
+> File "test1.ml", line 10, characters 18-19:
+> 10 | 	let b = separate a in
+>                        ^
+> Error: This expression has type (string * string) list
+>        but an expression was expected of type 'a list list
+>        Type string * string is not compatible with type 'a list 
 [2]
