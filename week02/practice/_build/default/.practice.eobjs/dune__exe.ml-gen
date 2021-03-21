@@ -1,0 +1,6 @@
+(** @canonical Dune__exe.Hw *)
+module Hw = Dune__exe__Hw
+
+
+(** @canonical Dune__exe.Practice *)
+module Practice = Dune__exe__Practice
