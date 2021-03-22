@@ -40,10 +40,10 @@ let print_tp name lst =
 (*test case *)
 let _ =
 	let l1 = [(1,3);(3,5);(1,2);(4,5)] in
-	let _ = print_tp "Split this ! " l1 in
+	let _ = print_tp " Split this ! " l1 in
 	let (al,bl) = split l1 in (* ([1;3;1;4],[3;5;2;5]) *)
-	let _ =	print_ls "first_split" al in (* [1;3;1;4] *)
-	let _ = print_ls "second_split" bl in (* [3;5;2;5] *)
+	let _ =	print_ls "    first_split" al in (* [1;3;1;4] *)
+	let _ = print_ls "    second_split" bl in (* [3;5;2;5] *)
 	let _ = F.printf "\n" in
 	let a = [2;4;8;3;1;0] in
 	let b = [100;150;123;1000;25;31] in
@@ -51,5 +51,5 @@ let _ =
 	let _ = print_ls " B " b in
 	let _ = F.printf "\n" in
 	let c = combine a b in (* [(2,100);(4,150);(8,123);(3,1000);(1,25);(0,31)] *)
-	print_tp " Combine A and B ! " c 
+	print_tp "    Combine A and B ! " c 
 	
