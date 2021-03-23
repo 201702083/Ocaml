@@ -24,7 +24,7 @@ let combine l1 l2 =
 let print_ls name lst = 
 
 	let _ = F.printf "%s : [ " name in
-	let _ =	List.iter (fun x-> F.printf " %c" x ) lst in
+	let _ =	List.iter (fun x-> F.printf " %s" x ) lst in
 	F.printf " ]\n"
 
 let print_tp name lst =
@@ -41,7 +41,7 @@ let print_tp name lst =
 let _ =
 	(*let l1 = [(1,3);(3,5);(1,2);(4,5)] in
 	let _ = print_tp " Split this ! " l1 in*)
-	let l2 = [('a','5');('b','c')] in
+	let l2 = [("hi","bye");("im tom","im going library")] in
 	let (a,b) = split l2 in
 	let _ = print_ls "fst " a in
 	let _ = print_ls "snd " b in
