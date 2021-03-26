@@ -7,7 +7,7 @@ let print_map map =
 	| [] -> Format.printf " ]\n"
 	| a :: tl -> match tl with
 		     | [] ->Format.printf "( %s %s )" (fst a) (snd a); print tl
-		     | _ :: _ -> Format.printf "( %s %s ), " (fst a) (snd a); print tl
+		     | _ :: _ -> Format.printf "( %s %s ); " (fst a) (snd a); print tl
 	in
 	print map
 
