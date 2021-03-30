@@ -1,3 +1,4 @@
+module F = Format
 type t = (string * string)list
 let empty = [] 
 let add key value map =
@@ -24,3 +25,16 @@ let erase key map =
 	| [] -> failwith " No such key exists "
 	in
 	erase_rec key [] map
+	
+let print_map fmt map = 
+  let rec print_map_impl map = 
+    match map with
+    | [] -> ()
+    | (k, v) :: t -> 
+        let () = F.fprintf fmt "(%s, %s) " k v in
+        print_map_impl t
+  in
+  let () = F.fprintf fmt "[ " in
+  let () = print_map_impl map in
+  F.fprintf fmt "]"
+
