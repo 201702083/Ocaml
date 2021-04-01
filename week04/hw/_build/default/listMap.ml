@@ -5,9 +5,9 @@ let add key value map =
 	let rec add_rec key value mh ml = 
 	match ml with
 	| a :: tl -> 
-		if ( (fst a) = key ) then ( (key,value) :: tl  ) 
-		else (add_rec key value (a::mh) tl)
-	|[] -> (key,value) :: map
+		if ( (fst a) = key ) then ( mh @ ( (key,value) :: tl)  ) 
+		else (add_rec key value (List.rev (a::mh)) tl)
+	|[] -> (key,value) :: (mh @ ml);
 	in
 	add_rec key value [] map
 
