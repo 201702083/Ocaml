@@ -26,7 +26,7 @@ let lex chars =
 								match ( lex_impl S1 t v) with
 								| Int n ->Int( -n) 
 							end
-						|'0'..'9' ->lex_impl S2 t (v*10 + (char_to_int h))
+						|'0' .. '9' ->lex_impl S2 t (v*10 + (char_to_int h))
 						| _ -> failwith "Not a valid natural number OR ( - ) "
 					end
 				|[] -> failwith " list is Empty "
