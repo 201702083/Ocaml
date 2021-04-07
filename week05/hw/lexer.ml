@@ -16,7 +16,7 @@ let char_to_str c = Char.escaped c
 (* lex : char list -> t *)
 let lex chars = 
   (* lex_impl : state -> char list -> int -> string -> t *)
-
+	
 	let rec lex_impl state chars v s =
 		match state with
 		|S0->
