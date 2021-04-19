@@ -6,6 +6,8 @@ let rec list_car ch = match ch with
 
 let char_to_str c = Char.escaped c
 
+
+(* string -> string *)
 let email s  =
 	let lst = list_car s in
 	let rec check state lst str =
@@ -64,10 +66,21 @@ let email s  =
 		end
 	in
 	check S0 lst ""
-let pp fmt v =  Format.fprintf fmt "%s" v
+let pp fmt v =  Format.fprintf fmt "%s" v (* unit*)
+
+let rec repeat () = 
+	let _ = print_endline " 0 : 종료 , 1 : 입력 " in
+	let t = read_int() in
+	match t with
+	| 0 ->  "End"
+	| 1 -> 	let _ = print_string " 이메일을 입력하시오 : " in
+		begin
+			let mail = read_line() in
+			Format.printf "%a ::: 올바른 형식입니다. ! \n" pp (email mail);
+			repeat () 
+		end
+	| _ ->	failwith "Invalid input"
 
 let _ =
-	let a = email "chs29359685@gmail.com" in
-	let _ = Format.printf "Email : %a\n" pp a in
-	email "i7722@naver@"
-
+	let _ = print_endline " Email Form : (name + .)^ * @ * name^ * (.*name)^" in
+	repeat ()
