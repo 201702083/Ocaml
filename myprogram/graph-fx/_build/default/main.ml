@@ -137,7 +137,7 @@ let calc x f =
 		let idx = pri (conv s) in (* 우선순위 int리스트에서 가장 큰 우선순위의 인덱스 int *)
 		match s with
 		| [] -> List.hd c
-		| _ -> List.filter (fun x -> Format.printf "%d" x ) c ;
+		| _ -> 
 				begin
 					match (List.nth s idx) with
                 		|'-' -> cal (update (s,c) idx ((List.nth c idx) - (List.nth c (idx+1))))
