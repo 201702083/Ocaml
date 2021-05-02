@@ -9,7 +9,8 @@ let rec interp_e (fenv : FEnv.t) (s : Store.t) (e : Ast.expr) : int =
 	|Id n -> Store.find n s
 	|LetIn (n,e1,e2) -> interp_e fenv (Store.insert n (interp_e fenv s e1) s) e2
 	|FCall (n,e) -> let (par,exp) = FEnv.find n fenv in 
-			interp_e fenv s (LetIn (par,exp,e))
+			(* func n 에 e를 parameter로 넣겠다. *)
+			interp_e fenv s (LetIn (par, e, exp) )  
 
 let interp_d (fd : Ast.fundef) : FEnv.t = 
 	(* write your code *)
