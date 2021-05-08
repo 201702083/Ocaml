@@ -1,10 +1,10 @@
-# dune build main.exe
+# dune build test.exe
 # OCAMLPARAM: unset
-# Workspace root: /Users/macbook/3-1/pl/Ocaml/week09/hw
-$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/mz/wy8m4lj564j_lycn1_x6w1k00000gn/T/dune8d9722.output 2> /dev/null
+# Workspace root: /Users/macbook/3-1/pl/Ocaml
+$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/mz/wy8m4lj564j_lycn1_x6w1k00000gn/T/dune2cc05b.output 2> /dev/null
 # Auto-detected concurrency: 8
 # disable binary cache
-$ /Users/macbook/.opam/default/bin/ocamlc.opt -config > /var/folders/mz/wy8m4lj564j_lycn1_x6w1k00000gn/T/dune196a2c.output
+$ /Users/macbook/.opam/default/bin/ocamlc.opt -config > /var/folders/mz/wy8m4lj564j_lycn1_x6w1k00000gn/T/dunef351c2.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -24,17 +24,15 @@ $ /Users/macbook/.opam/default/bin/ocamlc.opt -config > /var/folders/mz/wy8m4lj5
 #      map
 #        { "DUNE_OCAML_HARDCODED" : "/Users/macbook/.opam/default/lib"
 #        ; "DUNE_OCAML_STDLIB" : "/Users/macbook/.opam/default/lib/ocaml"
-#        ; "DUNE_SOURCEROOT" : "/Users/macbook/3-1/pl/Ocaml/week09/hw"
-#        ; "INSIDE_DUNE" :
-#            "/Users/macbook/3-1/pl/Ocaml/week09/hw/_build/default"
-#        ; "MANPATH" :
-#            "/Users/macbook/3-1/pl/Ocaml/week09/hw/_build/install/default/bin"
+#        ; "DUNE_SOURCEROOT" : "/Users/macbook/3-1/pl/Ocaml"
+#        ; "INSIDE_DUNE" : "/Users/macbook/3-1/pl/Ocaml/_build/default"
+#        ; "MANPATH" : "/Users/macbook/3-1/pl/Ocaml/_build/install/default/bin"
 #        ; "OCAMLFIND_IGNORE_DUPS_IN" :
-#            "/Users/macbook/3-1/pl/Ocaml/week09/hw/_build/install/default/lib"
+#            "/Users/macbook/3-1/pl/Ocaml/_build/install/default/lib"
 #        ; "OCAMLPATH" :
-#            "/Users/macbook/3-1/pl/Ocaml/week09/hw/_build/install/default/lib"
+#            "/Users/macbook/3-1/pl/Ocaml/_build/install/default/lib"
 #        ; "OCAMLTOP_INCLUDE_PATH" :
-#            "/Users/macbook/3-1/pl/Ocaml/week09/hw/_build/install/default/lib/toplevel"
+#            "/Users/macbook/3-1/pl/Ocaml/_build/install/default/lib/toplevel"
 #        ; "OCAML_COLOR" : "always"
 #        ; "OPAMCOLOR" : "always"
 #        }
@@ -109,3 +107,6 @@ $ /Users/macbook/.opam/default/bin/ocamlc.opt -config > /var/folders/mz/wy8m4lj5
 #      ; windows_unicode = false
 #      }
 #  }
+$ (cd _build/default && /Users/macbook/.opam/default/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I a/.test.eobjs/byte -no-alias-deps -opaque -o a/.test.eobjs/byte/dune__exe__Test.cmo -c -impl a/test.ml)
+$ (cd _build/default && /Users/macbook/.opam/default/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I a/.test.eobjs/byte -I a/.test.eobjs/native -intf-suffix .ml -no-alias-deps -opaque -o a/.test.eobjs/native/dune__exe__Test.cmx -c -impl a/test.ml)
+$ (cd _build/default && /Users/macbook/.opam/default/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o a/test.exe a/.test.eobjs/native/dune__exe__Test.cmx)
