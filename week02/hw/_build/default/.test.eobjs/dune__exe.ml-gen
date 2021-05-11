@@ -1,6 +1,0 @@
-(** @canonical Dune__exe.Arith *)
-module Arith = Dune__exe__Arith
-
-
-(** @canonical Dune__exe.Test *)
-module Test = Dune__exe__Test
