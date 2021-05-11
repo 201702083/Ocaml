@@ -1,0 +1,6 @@
+(** @canonical Dune__exe.Input *)
+module Input = Dune__exe__Input
+
+
+(** @canonical Dune__exe.Main *)
+module Main = Dune__exe__Main
