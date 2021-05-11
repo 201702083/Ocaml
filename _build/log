@@ -1,10 +1,10 @@
-# dune build test.exe
+# dune build main.exe
 # OCAMLPARAM: unset
 # Workspace root: /Users/macbook/3-1/pl/Ocaml
-$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/mz/wy8m4lj564j_lycn1_x6w1k00000gn/T/dune2cc05b.output 2> /dev/null
+$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/mz/wy8m4lj564j_lycn1_x6w1k00000gn/T/dune82351c.output 2> /dev/null
 # Auto-detected concurrency: 8
 # disable binary cache
-$ /Users/macbook/.opam/default/bin/ocamlc.opt -config > /var/folders/mz/wy8m4lj564j_lycn1_x6w1k00000gn/T/dunef351c2.output
+$ /Users/macbook/.opam/default/bin/ocamlc.opt -config > /var/folders/mz/wy8m4lj564j_lycn1_x6w1k00000gn/T/dunee68439.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -107,6 +107,3 @@ $ /Users/macbook/.opam/default/bin/ocamlc.opt -config > /var/folders/mz/wy8m4lj5
 #      ; windows_unicode = false
 #      }
 #  }
-$ (cd _build/default && /Users/macbook/.opam/default/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I a/.test.eobjs/byte -no-alias-deps -opaque -o a/.test.eobjs/byte/dune__exe__Test.cmo -c -impl a/test.ml)
-$ (cd _build/default && /Users/macbook/.opam/default/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I a/.test.eobjs/byte -I a/.test.eobjs/native -intf-suffix .ml -no-alias-deps -opaque -o a/.test.eobjs/native/dune__exe__Test.cmx -c -impl a/test.ml)
-$ (cd _build/default && /Users/macbook/.opam/default/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o a/test.exe a/.test.eobjs/native/dune__exe__Test.cmx)
