@@ -31,8 +31,12 @@ let rec interp_e (s : Store.t) (e : Ast.expr) : Store.value =
     | Cond (e, t, f) -> 
                   begin
                     match (interp_e s e) with
-                    | BoolV(true) -> interp_e s t
-                    | BoolV[false) -> interp_e s f
+                    | BoolV(i) -> 
+                              begin
+                                match i with
+                                | true -> interp_e s t
+                                | false -> interp_e s f
+                              end 
                     | _ -> failwith (Format.asprintf "Not a bool value: %a" Ast.pp_e e)
                   end
     | Lt (e1, e2) -> 
