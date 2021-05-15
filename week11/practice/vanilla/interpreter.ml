@@ -43,7 +43,7 @@ let rec interp_e (s : Store.t) (e : Ast.expr) : Store.value =
                   begin
                     match ( ( interp_e s e1 ) , ( interp_e s e2 ) ) with
                     |NumV(a),NumV(b) -> if ( a < b) then (Store.BoolV(true)) else (Store.BoolV(false))
-                    | _ -> failwith (Format.asprintf "Not a Comparable: %a %a" Ast.pp_e e1, Ast.pp_e e2)
+                    | _ -> failwith (Format.asprintf "Not a Comparable: %a %a" Ast.pp_e e1 Ast.pp_e e2)
                   end
 (* practice & homework *)
 let interp (p : Ast.fvae) : Store.value = 
