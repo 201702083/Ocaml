@@ -31,19 +31,14 @@ let rec interp_e (s : Store.t) (e : Ast.expr) : Store.value =
     | App (e1,e2) -> 
                 begin
                   match ( interp_e s e1 ) with
-                  | ClosureV (str , exp, t ) -> 
-                                            begin
-                                            interp_e (Store.insert str (Store.FreezedV(e2,s)) t ) exp 
-                                            end
+                  | ClosureV (str , exp, t ) -> interp_e (Store.insert str (Store.FreezedV(e2,s)) t ) exp 
                   | _ -> failwith (Format.asprintf "Not a function: %a" Ast.pp_e e1)
                 end
     | Fun (str,e1) -> (Store.ClosureV (str,e1,s)) 
     | Lt (e1, e2) -> 
                   begin
                     match ( ( interp_e s e1 ) , ( interp_e s e2 ) ) with
-                    | NumV(a) , NumV(b) -> begin
-                              if (a<b) then (Store.ClosureV("x",Fun("y",(Id "x")),s)) else (Store.ClosureV("x",Fun("y",(Id "y")),s))
-                                          end
+                    | NumV(a) , NumV(b) -> if (a<b) then (Store.ClosureV("x",Fun("y",(Id "x")),s)) else (Store.ClosureV("x",Fun("y",(Id "y")),s))
                     | _ -> failwith (Format.asprintf "Not a Comparable: %a %a" Ast.pp_e e1 Ast.pp_e e2)
                   end
 
