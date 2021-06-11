@@ -16,7 +16,7 @@ let _ =
     [ 
       "x = 3;"
     ; "x = 3; y = 4;"
-    ; "x = 3; if (x < 3) { y = 1; } else { y = 99; }"
+    ; "x = 3; y = true; z = false; if (y == z) { y = 1; } else { y = 99; }"
     ; "x = 3; if (x > 3) { x = 1; } else { x = 99; }"
     ]
   in

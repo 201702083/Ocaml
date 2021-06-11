@@ -34,6 +34,7 @@ let rec interp_e (e : Ast.expr) (s : Store.t) : Store.value =
                     begin
                     match ((interp_e e1 s), (interp_e e2 s)) with
                     | NumV(a) , NumV(b) -> if (a==b) then (BoolV(true)) else (BoolV(false))
+                    | BoolV(a) , BoolV(b) -> if (a==b) then (BoolV(true)) else (BoolV(false))
                     | _ -> failwith (Format.asprintf "Invalid equal-to: %a == %a" Ast.pp_e e1 Ast.pp_e e2)
                      end
   | And (e1,e2) -> 
