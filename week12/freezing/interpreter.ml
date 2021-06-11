@@ -16,8 +16,8 @@ let rec interp_e (s : Store.t) (e : Ast.expr) : Store.value =
                     end
     | Id (str) ->  begin
                         match (Store.find str s ) with
-                        | FreezedV(exp, t) -> interp_e t exp
-                        | x -> x
+                        | FreezedV(exp, t) -> interp_e t exp (* 얼어있는 값을 불러온다 -> 재귀의 마지막 -> 값을 계산 *)
+                        | x -> x (* 그 외는 그대로 반환 *)
                     end
                     (* Store.find str s *)
     | LetIn (str,e1,e2) ->   interp_e (Store.insert str ( ( interp_e s e1 ) ) s ) e2 
@@ -31,7 +31,7 @@ let rec interp_e (s : Store.t) (e : Ast.expr) : Store.value =
     | App (e1,e2) -> 
                 begin
                   match ( interp_e s e1 ) with
-                  | ClosureV (str , exp, t ) -> interp_e (Store.insert str (Store.FreezedV(e2,s)) t ) exp 
+                  | ClosureV (str , exp, t ) -> interp_e (Store.insert str (Store.FreezedV(e2,s)) t ) exp (* 값 x 메모리 를 얼려서 파라미터로 사용 *) 
                   | _ -> failwith (Format.asprintf "Not a function: %a" Ast.pp_e e1)
                 end
     | Fun (str,e1) -> (Store.ClosureV (str,e1,s)) 
